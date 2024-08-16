@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_groq import ChatGroq
+from fastapi.middleware.cors import CORSMiddleware
 import os
 from langserve import add_routes
 from dotenv import load_dotenv
