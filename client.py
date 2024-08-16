@@ -13,7 +13,7 @@ def get_groq_response(input_text, language):
 
     try:
         # Send the request
-        response = requests.post("https://llm-translator.onrender.com", json=json_body)
+        response = requests.post("https://llm-translator.onrender.com/chain/invoke", json=json_body)
         # Raise an error if the request was unsuccessful
         response.raise_for_status()
         # Parse the JSON response
