@@ -35,10 +35,20 @@ app = FastAPI(
     description="A simple API server using Langchain runnable interfaces"
 )
 
+# Add CORS middleware to allow requests from any origin
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://llmtranslator-2811.streamlit.app/"],  # Adjust to restrict access to specific origins if needed
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+
 # Add chain routes
 add_routes(app, chain, path="/chain")
 
 # Run the FastAPI app
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
